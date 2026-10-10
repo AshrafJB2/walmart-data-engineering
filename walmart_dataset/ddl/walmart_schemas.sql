@@ -1,6 +1,4 @@
-CREATE SCHEMA public
-
-CREATE TABLE customers (
+CREATE TABLE IF NOT EXISTS customers (
     customer_id BIGINT PRIMARY KEY,
     first_name VARCHAR(100),
     last_name VARCHAR(100),
@@ -11,10 +9,10 @@ CREATE TABLE customers (
     country VARCHAR(100),
     created_timestamp TIMESTAMP,
     updated_timestamp TIMESTAMP,
-    is_active CHAR(1)
+    is_active BOOLEAN
 );
 
-CREATE TABLE stores (
+CREATE TABLE IF NOT EXISTS stores (
     store_id BIGINT PRIMARY KEY,
     store_name VARCHAR(255),
     city VARCHAR(100),
@@ -22,10 +20,10 @@ CREATE TABLE stores (
     country VARCHAR(100),
     created_timestamp TIMESTAMP,
     updated_timestamp TIMESTAMP,
-    is_active CHAR(1)
+    is_active BOOLEAN
 );
 
-CREATE TABLE products (
+CREATE TABLE IF NOT EXISTS products (
     product_id BIGINT PRIMARY KEY,
     product_name VARCHAR(255),
     category VARCHAR(100),
@@ -33,10 +31,10 @@ CREATE TABLE products (
     price NUMERIC(10,2),
     created_timestamp TIMESTAMP,
     updated_timestamp TIMESTAMP,
-    is_active CHAR(1)
+    is_active BOOLEAN
 );
 
-CREATE TABLE employees (
+CREATE TABLE IF NOT EXISTS employees (
     employee_id BIGINT PRIMARY KEY,
     store_id BIGINT REFERENCES stores(store_id),
     first_name VARCHAR(100),
@@ -46,10 +44,10 @@ CREATE TABLE employees (
     salary NUMERIC(10,2),
     created_timestamp TIMESTAMP,
     updated_timestamp TIMESTAMP,
-    is_active CHAR(1)
+    is_active BOOLEAN
 );
 
-CREATE TABLE orders (
+CREATE TABLE IF NOT EXISTS orders (
     order_id BIGINT PRIMARY KEY,
     customer_id BIGINT REFERENCES customers(customer_id),
     store_id BIGINT REFERENCES stores(store_id),
@@ -59,10 +57,10 @@ CREATE TABLE orders (
     total_amount NUMERIC(12,2),
     created_timestamp TIMESTAMP,
     updated_timestamp TIMESTAMP,
-    is_active CHAR(1)
+    is_active BOOLEAN
 );
 
-CREATE TABLE order_items (
+CREATE TABLE IF NOT EXISTS order_items (
     order_item_id BIGINT PRIMARY KEY,
     order_id BIGINT REFERENCES orders(order_id),
     product_id BIGINT REFERENCES products(product_id),
@@ -71,5 +69,5 @@ CREATE TABLE order_items (
     line_amount NUMERIC(12,2),
     created_timestamp TIMESTAMP,
     updated_timestamp TIMESTAMP,
-    is_active CHAR(1)
+    is_active BOOLEAN
 );

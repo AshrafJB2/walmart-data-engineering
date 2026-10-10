@@ -1,0 +1,64 @@
+
+version: 2
+
+models:
+  - name: fct_sales
+    description: "Sales facts at the order-item grain."
+    columns:
+      - name: order_item_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+      - name: product_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id
+      - name: store_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_stores')
+                field: store_id
+
+  - name: fct_orders
+    description: "Order facts at the order grain."
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_customers
+    description: "Customer attributes for sales analysis."
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_products
+    description: "Product attributes for sales analysis."
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_stores
+    description: "Store attributes for sales analysis."
+    columns:
+      - name: store_id
+        data_tests:
+          - unique
+          - not_null

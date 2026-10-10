@@ -1,0 +1,51 @@
+
+version: 2
+
+models:
+  - name: stg_walmart__customers
+    description: "Cleaned customer records from the raw source."
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_walmart__products
+    description: "Cleaned product records from the raw source."
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_walmart__stores
+    description: "Cleaned store records from the raw source."
+    columns:
+      - name: store_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_walmart__employees
+    description: "Cleaned employee records from the raw source."
+    columns:
+      - name: employee_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_walmart__orders
+    description: "Cleaned order records from the raw source."
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_walmart__order_items
+    description: "Cleaned order-item records from the raw source."
+    columns:
+      - name: order_item_id
+        data_tests:
+          - unique
+          - not_null
