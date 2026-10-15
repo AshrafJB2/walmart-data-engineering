@@ -251,15 +251,6 @@ walmart-data-engineering/
 └── README.md
 ```
 
-## Current Limitations and Operational Notes
-
-- **Repeated ingestion:** The Python loaders use plain `INSERT` statements rather than upserts. Re-running them against populated tables can produce duplicate primary-key errors.
-- **Cleaned data location:** The Airflow task/container setup uses `/opt/airflow/data/cleaned` for cleaned CSV output.
-- **Databricks configuration:** The `databricks_default` Airflow connection and the dbt profile must contain valid connection settings.
-- **Local development:** The Docker Compose setup is intended for local development, not production deployment.
-- **Model coverage:** The employees source is ingested into Bronze but does not currently have a staging model.
-- **Credentials:** Environment variables and connection settings must be configured securely. Placeholder values in the repository must be replaced locally before execution.
-
 For component-specific details, see:
 
 - [Airflow setup and orchestration](airflow/README.md)
