@@ -1,0 +1,205 @@
+=== TABLE: dbt_schema_intermediate_int_order_items_enriched_ view.csv ===
+
+ order_item_id  order_id  customer_id  store_id  product_id     product_name    category   brand  quantity  unit_price  line_amount          order_timestamp order_status
+
+             3         1          522        10         471    Court Product        Toys    Nike         3      470.71      1412.13 2026-12-02T01:28:27.000Z      Pending
+
+             4         1          522        10         263    Store Product      Sports   Apple         1      269.23       269.23 2026-12-02T01:28:27.000Z      Pending
+
+             6         2         1475        10         487    Allow Product     Grocery  Adidas         1      405.41       405.41 2026-08-24T05:56:23.000Z    Cancelled
+
+             9         3          929        13         258  Serious Product      Sports      LG         4      481.33      1925.32 2026-10-28T22:57:46.000Z      Pending
+
+            11         4         1221         5           7    Young Product     Grocery  Adidas         4      435.71      1742.84 2026-06-15T11:36:24.000Z    Cancelled
+
+            13         5          617        25          54     Yeah Product      Sports    Sony         1       19.84        19.84 2026-06-12T09:13:45.000Z     Returned
+
+            14         5          617        25          73   Friend Product     Grocery Samsung         1       44.30        44.30 2026-06-12T09:13:45.000Z     Returned
+
+            17         7          127        21         167 Suddenly Product      Sports Samsung         1       23.00        23.00 2026-01-24T20:44:22.000Z    Cancelled
+
+            19         7          127        21          64       On Product        Toys    Nike         2      382.72       765.44 2026-01-24T20:44:22.000Z    Cancelled
+
+            20         8          719        23         402 Standard Product Electronics    Sony         2      175.26       350.52 2026-03-20T16:49:25.000Z    Completed
+
+
+
+=== TABLE: dbt_schema_intermediate_int_orders_with_totals_view.csv ===
+
+ order_id  customer_id  store_id          order_timestamp order_status  source_total_amount  calculated_total_amount  total_quantity  order_item_count
+
+        1          522        10 2026-12-02T01:28:27.000Z      Pending              4202.65                  4202.65              13                 5
+
+        2         1475        10 2026-08-24T05:56:23.000Z    Cancelled               595.47                   595.47               2                 2
+
+        3          929        13 2026-10-28T22:57:46.000Z      Pending              2637.61                  2637.61               7                 3
+
+        4         1221         5 2026-06-15T11:36:24.000Z    Cancelled              2209.74                  2209.74               5                 2
+
+        5          617        25 2026-06-12T09:13:45.000Z     Returned                64.14                    64.14               2                 2
+
+        6          361        14 2026-09-16T14:16:17.000Z    Completed              1807.36                  1807.36               6                 2
+
+        7          127        21 2026-01-24T20:44:22.000Z    Cancelled              2120.32                  2120.32               7                 3
+
+        8          719        23 2026-03-20T16:49:25.000Z    Completed              1522.13                  1522.13               9                 4
+
+        9          797        20 2026-09-12T03:48:32.000Z    Cancelled              1519.46                  1519.46               5                 2
+
+       10          907        25 2026-05-15T04:09:13.000Z    Cancelled              2366.00                  2366.00              11                 5
+
+
+
+=== TABLE: dbt_schema_marts.dim_stores_view.csv ===
+
+ store_id       store_name               city       province country  is_active
+
+        1  Walmart Store 1   South Nicolestad       Illinois  Canada       True
+
+        2  Walmart Store 2    New Williamfurt           Utah  Canada       True
+
+        3  Walmart Store 3      Jeanettemouth   Rhode Island  Canada       True
+
+        4  Walmart Store 4  West Richardville     New Jersey  Canada       True
+
+        5  Walmart Store 5 North Sabrinamouth      Louisiana  Canada       True
+
+        6  Walmart Store 6    New Brandontown       Maryland  Canada       True
+
+        7  Walmart Store 7   North Stevenport South Carolina  Canada       True
+
+        8  Walmart Store 8     Port Lisamouth          Idaho  Canada       True
+
+        9  Walmart Store 9        Johnsonberg        Georgia  Canada       True
+
+       10 Walmart Store 10         Nixonburgh       Oklahoma  Canada       True
+
+
+
+=== TABLE: dbt_schema_marts.fct_sales_view.csv ===
+
+ order_item_id  order_id  customer_id  product_id  store_id          order_timestamp order_status  quantity  unit_price  line_amount
+
+             3         1          522         471        10 2026-12-02T01:28:27.000Z      Pending         3      470.71      1412.13
+
+             4         1          522         263        10 2026-12-02T01:28:27.000Z      Pending         1      269.23       269.23
+
+             6         2         1475         487        10 2026-08-24T05:56:23.000Z    Cancelled         1      405.41       405.41
+
+             9         3          929         258        13 2026-10-28T22:57:46.000Z      Pending         4      481.33      1925.32
+
+            11         4         1221           7         5 2026-06-15T11:36:24.000Z    Cancelled         4      435.71      1742.84
+
+            13         5          617          54        25 2026-06-12T09:13:45.000Z     Returned         1       19.84        19.84
+
+            14         5          617          73        25 2026-06-12T09:13:45.000Z     Returned         1       44.30        44.30
+
+            17         7          127         167        21 2026-01-24T20:44:22.000Z    Cancelled         1       23.00        23.00
+
+            19         7          127          64        21 2026-01-24T20:44:22.000Z    Cancelled         2      382.72       765.44
+
+            20         8          719         402        23 2026-03-20T16:49:25.000Z    Completed         2      175.26       350.52
+
+
+
+=== TABLE: dbt_schema_marts_dim_customers_view.csv ===
+
+ customer_id first_name last_name                      email                 phone                 city     province country  is_active
+
+           1     Ronald      Long          shall@example.com +1-372-617-6276x55955           Torresland       Alaska  Canada       True
+
+           2     Carlos Zimmerman        cesar33@example.org            4587577121         Lake Whitney   California  Canada       True
+
+           3     Austin    Tucker   tinamcdaniel@example.net   +1-978-494-3397x331      Richardsonburgh   New Jersey  Canada       True
+
+           4    Christy     Brown        rlittle@example.com      001-413-853-3597     North Amberville     Missouri  Canada       True
+
+           5   Virginia     Lopez     knapperica@example.net +1-220-614-0398x84044 Lake Christopherfort        Texas  Canada       True
+
+           6   Samantha      Hill jensenkimberly@example.com     (245)256-1613x451           Edwardside         Iowa  Canada       True
+
+           7    Carolyn   Russell       carrie88@example.com            3927676987         Jonathanfurt    Tennessee  Canada       True
+
+           8    William     Poole   tiffanyjames@example.com  +1-381-545-8353x4217         Port Jessica     Colorado  Canada       True
+
+           9       John     Curry    christine29@example.net    381.855.6906x52137           South Eric North Dakota  Canada       True
+
+          10    Kenneth   Griffin johnsonmatthew@example.com       +1-706-676-0275        East Jennifer       Nevada  Canada       True
+
+
+
+=== TABLE: dbt_schema_marts_dim_products_view.csv ===
+
+ product_id        product_name    category   brand  price  is_active
+
+          1       After Product        Home Samsung 164.31       True
+
+          2 Participant Product      Sports  Adidas 140.61       True
+
+          3         Use Product Electronics  Adidas 331.41       True
+
+          4        Near Product Electronics Samsung 321.62       True
+
+          5        Each Product        Toys Samsung 165.65       True
+
+          6        Mind Product    Clothing Samsung 221.94       True
+
+          7       Young Product     Grocery  Adidas 386.10       True
+
+          9         One Product        Home    Nike 303.79       True
+
+         10     Tonight Product Electronics  Adidas 266.56       True
+
+         11        What Product        Home  Adidas 271.71       True
+
+
+
+=== TABLE: dbt_schema_marts_fct_orders_view.csv ===
+
+ order_id  customer_id  store_id          order_timestamp order_status  source_total_amount  calculated_total_amount  total_quantity  order_item_count
+
+        1          522        10 2026-12-02T01:28:27.000Z      Pending              4202.65                  4202.65              13                 5
+
+        2         1475        10 2026-08-24T05:56:23.000Z    Cancelled               595.47                   595.47               2                 2
+
+        3          929        13 2026-10-28T22:57:46.000Z      Pending              2637.61                  2637.61               7                 3
+
+        4         1221         5 2026-06-15T11:36:24.000Z    Cancelled              2209.74                  2209.74               5                 2
+
+        5          617        25 2026-06-12T09:13:45.000Z     Returned                64.14                    64.14               2                 2
+
+        6          361        14 2026-09-16T14:16:17.000Z    Completed              1807.36                  1807.36               6                 2
+
+        7          127        21 2026-01-24T20:44:22.000Z    Cancelled              2120.32                  2120.32               7                 3
+
+        8          719        23 2026-03-20T16:49:25.000Z    Completed              1522.13                  1522.13               9                 4
+
+        9          797        20 2026-09-12T03:48:32.000Z    Cancelled              1519.46                  1519.46               5                 2
+
+       10          907        25 2026-05-15T04:09:13.000Z    Cancelled              2366.00                  2366.00              11                 5
+
+
+
+=== TABLE: dbt_schema_staging_stg_walmart__customers_view.csv ===
+
+ customer_id first_name last_name                      email                 phone                 city     province country        created_timestamp        updated_timestamp  is_active           dbt_updated_at
+
+           1     Ronald      Long          shall@example.com +1-372-617-6276x55955           Torresland       Alaska  Canada 2026-06-13T03:01:47.000Z 2026-06-21T10:15:55.000Z       True 2026-10-09T23:44:19.177Z
+
+           2     Carlos Zimmerman        cesar33@example.org            4587577121         Lake Whitney   California  Canada 2026-06-23T23:57:34.000Z 2026-06-26T18:24:36.000Z       True 2026-10-09T23:44:19.177Z
+
+           3     Austin    Tucker   tinamcdaniel@example.net   +1-978-494-3397x331      Richardsonburgh   New Jersey  Canada 2026-02-25T07:32:38.000Z 2026-02-26T00:45:23.000Z       True 2026-10-09T23:44:19.177Z
+
+           4    Christy     Brown        rlittle@example.com      001-413-853-3597     North Amberville     Missouri  Canada 2026-05-20T13:14:28.000Z 2026-06-07T22:06:23.000Z       True 2026-10-09T23:44:19.177Z
+
+           5   Virginia     Lopez     knapperica@example.net +1-220-614-0398x84044 Lake Christopherfort        Texas  Canada 2026-02-10T22:27:21.000Z 2026-02-19T02:41:09.000Z       True 2026-10-09T23:44:19.177Z
+
+           6   Samantha      Hill jensenkimberly@example.com     (245)256-1613x451           Edwardside         Iowa  Canada 2026-01-24T12:06:22.000Z 2026-02-20T23:44:38.000Z       True 2026-10-09T23:44:19.177Z
+
+           7    Carolyn   Russell       carrie88@example.com            3927676987         Jonathanfurt    Tennessee  Canada 2026-04-28T17:07:59.000Z 2026-05-10T19:43:17.000Z       True 2026-10-09T23:44:19.177Z
+
+           8    William     Poole   tiffanyjames@example.com  +1-381-545-8353x4217         Port Jessica     Colorado  Canada 2026-06-08T11:36:12.000Z 2026-06-30T13:38:54.000Z       True 2026-10-09T23:44:19.177Z
+
+           9       John     Curry    christine29@example.net    381.855.6906x52137           South Eric North Dakota  Canada 2026-03-16T02:54:14.000Z 2026-04-12T06:18:31.000Z       True 2026-10-09T23:44:19.177Z
+
+          10    Kenneth   Griffin johnsonmatthew@example.com       +1-706-676-0275        East Jennifer       Nevada  Canada 2026-04-04T05:23:22.000Z 2026-04-11T02:41:06.000Z       True 2026-10-09T23:44:19.177Z

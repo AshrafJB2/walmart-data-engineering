@@ -1,0 +1,11 @@
+product_id,product_name,category,brand,price,is_active
+1,After Product,Home,Samsung,164.31,true
+2,Participant Product,Sports,Adidas,140.61,true
+3,Use Product,Electronics,Adidas,331.41,true
+4,Near Product,Electronics,Samsung,321.62,true
+5,Each Product,Toys,Samsung,165.65,true
+6,Mind Product,Clothing,Samsung,221.94,true
+7,Young Product,Grocery,Adidas,386.10,true
+9,One Product,Home,Nike,303.79,true
+10,Tonight Product,Electronics,Adidas,266.56,true
+11,What Product,Home,Adidas,271.71,true

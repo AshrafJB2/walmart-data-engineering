@@ -1,0 +1,11 @@
+customer_id,first_name,last_name,email,phone,city,province,country,created_timestamp,updated_timestamp,is_active,dbt_updated_at
+1,Ronald,Long,shall@example.com,+1-372-617-6276x55955,Torresland,Alaska,Canada,2026-06-13T03:01:47.000Z,2026-06-21T10:15:55.000Z,true,2026-10-09T23:44:19.177Z
+2,Carlos,Zimmerman,cesar33@example.org,4587577121,Lake Whitney,California,Canada,2026-06-23T23:57:34.000Z,2026-06-26T18:24:36.000Z,true,2026-10-09T23:44:19.177Z
+3,Austin,Tucker,tinamcdaniel@example.net,+1-978-494-3397x331,Richardsonburgh,New Jersey,Canada,2026-02-25T07:32:38.000Z,2026-02-26T00:45:23.000Z,true,2026-10-09T23:44:19.177Z
+4,Christy,Brown,rlittle@example.com,001-413-853-3597,North Amberville,Missouri,Canada,2026-05-20T13:14:28.000Z,2026-06-07T22:06:23.000Z,true,2026-10-09T23:44:19.177Z
+5,Virginia,Lopez,knapperica@example.net,+1-220-614-0398x84044,Lake Christopherfort,Texas,Canada,2026-02-10T22:27:21.000Z,2026-02-19T02:41:09.000Z,true,2026-10-09T23:44:19.177Z
+6,Samantha,Hill,jensenkimberly@example.com,(245)256-1613x451,Edwardside,Iowa,Canada,2026-01-24T12:06:22.000Z,2026-02-20T23:44:38.000Z,true,2026-10-09T23:44:19.177Z
+7,Carolyn,Russell,carrie88@example.com,3927676987,Jonathanfurt,Tennessee,Canada,2026-04-28T17:07:59.000Z,2026-05-10T19:43:17.000Z,true,2026-10-09T23:44:19.177Z
+8,William,Poole,tiffanyjames@example.com,+1-381-545-8353x4217,Port Jessica,Colorado,Canada,2026-06-08T11:36:12.000Z,2026-06-30T13:38:54.000Z,true,2026-10-09T23:44:19.177Z
+9,John,Curry,christine29@example.net,381.855.6906x52137,South Eric,North Dakota,Canada,2026-03-16T02:54:14.000Z,2026-04-12T06:18:31.000Z,true,2026-10-09T23:44:19.177Z
+10,Kenneth,Griffin,johnsonmatthew@example.com,+1-706-676-0275,East Jennifer,Nevada,Canada,2026-04-04T05:23:22.000Z,2026-04-11T02:41:06.000Z,true,2026-10-09T23:44:19.177Z

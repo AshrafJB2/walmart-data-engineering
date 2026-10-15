@@ -1,0 +1,11 @@
+order_item_id,order_id,customer_id,store_id,product_id,product_name,category,brand,quantity,unit_price,line_amount,order_timestamp,order_status
+3,1,522,10,471,Court Product,Toys,Nike,3,470.71,1412.13,2026-12-02T01:28:27.000Z,Pending
+4,1,522,10,263,Store Product,Sports,Apple,1,269.23,269.23,2026-12-02T01:28:27.000Z,Pending
+6,2,1475,10,487,Allow Product,Grocery,Adidas,1,405.41,405.41,2026-08-24T05:56:23.000Z,Cancelled
+9,3,929,13,258,Serious Product,Sports,LG,4,481.33,1925.32,2026-10-28T22:57:46.000Z,Pending
+11,4,1221,5,7,Young Product,Grocery,Adidas,4,435.71,1742.84,2026-06-15T11:36:24.000Z,Cancelled
+13,5,617,25,54,Yeah Product,Sports,Sony,1,19.84,19.84,2026-06-12T09:13:45.000Z,Returned
+14,5,617,25,73,Friend Product,Grocery,Samsung,1,44.30,44.30,2026-06-12T09:13:45.000Z,Returned
+17,7,127,21,167,Suddenly Product,Sports,Samsung,1,23.00,23.00,2026-01-24T20:44:22.000Z,Cancelled
+19,7,127,21,64,On Product,Toys,Nike,2,382.72,765.44,2026-01-24T20:44:22.000Z,Cancelled
+20,8,719,23,402,Standard Product,Electronics,Sony,2,175.26,350.52,2026-03-20T16:49:25.000Z,Completed

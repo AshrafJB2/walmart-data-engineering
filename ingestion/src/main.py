@@ -9,22 +9,22 @@ def main():
     create_database_if_not_exists()
 
     print("Starting data cleaning and loading process...")
-    for output_path in clean_csv_directory(Path("walmart_dataset/data/raw"), Path("walmart_dataset/data/cleaned")):
+    for output_path in clean_csv_directory(Path("walmart_dataset/data/raw"), Path("/opt/airflow/data/cleaned")):
         print(f"Cleaned: {output_path}")
 
     # Load cleaned data into the database
     try:
-        load_customer_data(pd.read_csv("walmart_dataset/data/cleaned/customers.csv"))
+        load_customer_data(pd.read_csv("/opt/airflow/data/cleaned/customers.csv"))
         print("Customer data loaded successfully.")
-        load_stores_data(pd.read_csv("walmart_dataset/data/cleaned/stores.csv"))
+        load_stores_data(pd.read_csv("/opt/airflow/data/cleaned/stores.csv"))
         print("Store data loaded successfully.")
-        load_products_data(pd.read_csv("walmart_dataset/data/cleaned/products.csv"))
+        load_products_data(pd.read_csv("/opt/airflow/data/cleaned/products.csv"))
         print("Product data loaded successfully.")
-        load_employees_data(pd.read_csv("walmart_dataset/data/cleaned/employees.csv"))
+        load_employees_data(pd.read_csv("/opt/airflow/data/cleaned/employees.csv"))
         print("Employee data loaded successfully.")
-        load_orders_data(pd.read_csv("walmart_dataset/data/cleaned/orders.csv"))
+        load_orders_data(pd.read_csv("/opt/airflow/data/cleaned/orders.csv"))
         print("Order data loaded successfully.")
-        load_order_items_data(pd.read_csv("walmart_dataset/data/cleaned/order_items.csv"))
+        load_order_items_data(pd.read_csv("/opt/airflow/data/cleaned/order_items.csv"))
         print("Order item data loaded successfully.")
     except Exception as e:
         print(f"An error occurred during data loading: {e}")
