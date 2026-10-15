@@ -25,7 +25,7 @@ def my_elt_pipeline():
         task_id="ingest_neon_to_delta",
         databricks_conn_id="databricks_default",
         pipeline_task={
-            "pipeline_id": "c81ff899-bbee-4627-b077-014d8b43d913"
+            "pipeline_id": "SECRET" # Replace with pipeline ID
         },
     )
 
